@@ -3,11 +3,12 @@
 source /etc/profile
 
 ZK_HOME=/usr/local/zookeeper
+ZK_SERVER_ID=$ZK_HOME/data/myid
 ZK_CFG=$ZK_HOME/conf/zoo.cfg
 
-#output myid
-echo "myid:${MY_ID}"
-echo "${MY_ID}" > $ZK_HOME/data/myid
+#output server id
+echo "SERVER_ID:${SERVER_ID}"
+echo "${SERVER_ID}" > $ZK_SERVER_ID
 
 #add zookeeper cluster servers into zoo.cfg file
 for server in $ZK_SERVERS; do
