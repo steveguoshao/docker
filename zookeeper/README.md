@@ -12,8 +12,7 @@
 但是我们可以通过 Docker 的 link 机制来对这个 ZK 容器进行访问. 执行如下命令
 
     docker run -it --rm --link my_zookeeper:zookeeper zookeeper zkCli.sh -server zookeeper
-这个命令的含义是:
-   启动一个 zookeeper 镜像, 并运行这个镜像内的 zkCli.sh 命令, 命令参数是 "-server zookeeper"
+这个命令的含义是:启动一个 zookeeper 镜像, 并运行这个镜像内的 zkCli.sh 命令, 命令参数是 "-server zookeeper"
 将我们先前启动的名为 my_zookeeper 的容器连接(link) 到我们新建的这个容器上, 并将其主机名命名为 zookeeper
 当我们执行了这个命令后, 就可以像正常使用 ZK 命令行客户端一样操作 zookeeper 服务了.
 
