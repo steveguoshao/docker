@@ -17,7 +17,7 @@
 将我们先前启动的名为 my_zookeeper 的容器连接(link) 到我们新建的这个容器上, 并将其主机名命名为 zookeeper
 当我们执行了这个命令后, 就可以像正常使用 ZK 命令行客户端一样操作 ZK 服务了.
 
-#通过 docker-compose 在一台机器上启动 zookeeper 集群的
+# 通过 docker-compose 在一台机器上启动 zookeeper 集群的
 docker-compose.yml文件：
 
     version: '2'
@@ -50,21 +50,21 @@ docker-compose.yml文件：
                 SERVER_ID: 3
                 ZK_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888 server.3=zookeeper3:2888:3888
 
-##启动zookeeper集群命令
+## 启动zookeeper集群命令
     COMPOSE_PROJECT_NAME=zookeeper_cluster docker-compose up -d
-##查看zookeeper集群状态
+## 查看zookeeper集群状态
     COMPOSE_PROJECT_NAME=zookeeper_cluster docker-compose ps
-##查看zookeeper集群日志
+## 查看zookeeper集群日志
     COMPOSE_PROJECT_NAME=zookeeper_cluster docker-compose logs
 
-##查看zookeeper各节点状态
+## 查看zookeeper各节点状态
     echo stat | nc 127.0.0.1 2181
 
     echo stat | nc 127.0.0.1 2182
 
     echo stat | nc 127.0.0.1 2183
 
-##使用Docker命令行客户端连接 zookeeper 集群
+## 使用Docker命令行客户端连接 zookeeper 集群
     docker run -it --rm \
         --link zookeeper1:zookeeper1 \
         --link zookeeper2:zookeeper2 \
@@ -72,6 +72,6 @@ docker-compose.yml文件：
         --net zookeeper_cluster_default \
         zookeeper zkCli.sh -server zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
         
-##通过本地主机连接zookeeper集群
+## 通过本地主机连接zookeeper集群
     ./bin/zkCli.sh -server localhost:2181,localhost:2182,localhost:2183
 
