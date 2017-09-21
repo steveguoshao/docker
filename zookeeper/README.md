@@ -5,7 +5,7 @@
 这个命令会在后台运行一个 zookeeper 容器, 名字是 my_zookeeper, 并且它默认会导出 2181 端口.
 
     docker logs -f my_zookeeper
-这个命令查看 ZK 的运行情况, 输出类似如下内容时, 表示 ZK 已经成功启动了:
+这个命令查看 ZK 的运行情况
 
     docker logs -f my_zookeeper
 使用 ZK 命令行客户端连接 ZK 因为刚才我们启动的那个 ZK 容器并没有绑定宿主机的端口, 因此我们不能直接访问它. 
