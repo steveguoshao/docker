@@ -68,7 +68,7 @@ docker-compose.yml文件：
         --link zookeeper1:zookeeper1 \
         --link zookeeper2:zookeeper2 \
         --link zookeeper3:zookeeper3 \
-        --net zookeeper_cluster_default \
+        --net zookeepercluster_default \
         zookeeper zkCli.sh -server zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
         
 ## 通过本地主机连接zookeeper集群
